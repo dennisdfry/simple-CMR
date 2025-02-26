@@ -1,1 +1,27 @@
-<p>dialog-add.user works!</p>
+<ol>
+    <h1>Add User</h1>
+    <li>
+        <mat-form-field appearance="outline">
+            <mat-label>First Name</mat-label>
+            <input matInput placeholder="Placeholder">
+            <mat-hint>Please enter your name</mat-hint>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Last Name</mat-label>
+            <input matInput placeholder="Placeholder">
+            <mat-hint>Please enter your name</mat-hint>
+        </mat-form-field>
+    </li>
+    <li>
+        <mat-form-field appearance="outline">
+            <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+    </li>
+    <li>
+        <button mat-button>Cancel</button>
+        <button mat-button>close</button>
+    </li>
+
+</ol>
