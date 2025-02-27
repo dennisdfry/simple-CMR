@@ -2,7 +2,7 @@
 import { CommonModule } from '@angular/common';
 import { DialogAddUserComponent } from '../dialog-add.user/dialog-add.user.component';
 import { sharedImports } from '../../shared-imports';
-import {ChangeDetectionStrategy, Component, inject, model, signal} from '@angular/core';
+import {ChangeDetectionStrategy, Component, inject, model, OnInit, signal} from '@angular/core';
 
 import {
     MAT_DIALOG_DATA,
@@ -21,20 +21,18 @@ import {
   templateUrl: './user.component.html',
   styleUrl: './user.component.scss'
 })
-export class UserComponent {
-  readonly animal = signal('');
-  readonly name = model('');
-  readonly dialog = inject(MatDialog);
+export class UserComponent implements OnInit {
+
+  
+  constructor(public dialog:MatDialog){}
+
+  ngOnInit(): void {
+      
+  }
 
   openDialog(): void {
-    const dialogRef = this.dialog.open(DialogAddUserComponent, {
+    this.dialog.open(DialogAddUserComponent, {
     });
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      if (result !== undefined) {
-        this.animal.set(result);
-      }
-    });
   }
 }

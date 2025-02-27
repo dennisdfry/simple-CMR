@@ -3,25 +3,44 @@
     <li>
         <mat-form-field appearance="outline">
             <mat-label>First Name</mat-label>
-            <input matInput placeholder="Placeholder">
+            <input [(ngModel)]="user.firstName" matInput placeholder="Placeholder">
             <mat-hint>Please enter your name</mat-hint>
         </mat-form-field>
         <mat-form-field appearance="outline">
             <mat-label>Last Name</mat-label>
-            <input matInput placeholder="Placeholder">
+            <input [(ngModel)]="user.lastName" matInput placeholder="Placeholder">
+            <mat-hint>Please enter your name</mat-hint>
+        </mat-form-field>
+    </li>
+    <li >
+        <mat-form-field class="form_field_fullWidth" appearance="outline">
+            <input [(ngModel)]="user.birthDate" matInput [matDatepicker]="picker" placeholder="Choose a date">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+    </li>
+    <li >
+        <mat-form-field class="form_field_fullWidth" appearance="outline">
+            <mat-label>Street + Number</mat-label>
+            <input [(ngModel)]="user.street" matInput placeholder="Placeholder">
             <mat-hint>Please enter your name</mat-hint>
         </mat-form-field>
     </li>
     <li>
         <mat-form-field appearance="outline">
-            <input matInput [matDatepicker]="picker" placeholder="Choose a date">
-            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
+            <mat-label>Zip Code</mat-label>
+            <input [(ngModel)]="user.zipCode" matInput placeholder="Placeholder">
+            <mat-hint>Please enter your name</mat-hint>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>City</mat-label>
+            <input [(ngModel)]="user.city" matInput placeholder="Placeholder">
+            <mat-hint>Please enter your name</mat-hint>
         </mat-form-field>
     </li>
     <li>
         <button mat-button>Cancel</button>
-        <button mat-button>close</button>
+        <button (click)="saveUser()" mat-button>save</button>
     </li>
 
 </ol>
